@@ -11,7 +11,7 @@ import './popular-categories.css';
 const PopularCategories = () => {
   return (
     <>
-      <section>
+      <section id="categories-section">
         <h2 className="section-title">Popular Categories</h2>
         <div className="categories">
           <div className="category breakfast">

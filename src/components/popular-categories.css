@@ -1,9 +1,9 @@
-section {
+#categories-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 80px 50px;
+  margin: 100px 50px;
   text-align: center;
 }
 
@@ -128,7 +128,7 @@ section {
 }
 
 @media (max-width: 396px) {
-  section {
+  #categories-section {
     margin-top: 80px;
   }
 
@@ -143,6 +143,39 @@ section {
   .category {
     width: 130px;
     height: 150px;
+  }
+
+  .categories-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .categoreis-title {
+    font-size: 0.8em;
+  }
+
+  .categories-count {
+    padding: 7px;
+    font-size: 0.6em;
+  }
+}
+
+@media (max-width: 285px) {
+  #categories-section {
+    margin-top: 80px;
+  }
+
+  .section-title {
+    font-size: 1.3em;
+  }
+
+  .categories {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .category {
+    width: 200px;
+    height: 220px;
   }
 
   .categories-icon {

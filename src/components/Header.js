@@ -3,7 +3,7 @@ import Logo from '../assets/icons/logo.svg';
 import HeaderVideoMp4 from '../assets/videos/header-video.mp4';
 import HeaderVideoWebm from '../assets/videos/header-video.webm';
 import HeaderImage from '../assets/images/headerbg.jpeg';
-import SearchIcon from '../assets/icons/search.png';
+import SearchIcon from '../assets/icons/search.svg';
 
 const Header = () => {
   return (
@@ -53,7 +53,6 @@ const Header = () => {
         <video playsInline autoPlay muted loop className="header-video">
           <source src={HeaderVideoMp4} type="video/mp4" />
           <source src={HeaderVideoWebm} type="video/webm" />
-          <img src={HeaderImage} alt="background-cooking" />
           <img
             className="header-img"
             src={HeaderImage}
