@@ -14,10 +14,10 @@ function App() {
     getRandomRecipe();
   }, []);
 
-  const getRandomRecipe = () => {
-    getRandomRecipeService().then((randomRecipeData) =>
-      setRandomRecipe(randomRecipeData)
-    );
+  const getRandomRecipe = async () => {
+    const randomRecipeData = await getRandomRecipeService();
+
+    setRandomRecipe(randomRecipeData);
   };
 
   return (
