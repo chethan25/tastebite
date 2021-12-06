@@ -13,6 +13,7 @@ header {
 .logo-svg {
   filter: invert(98%) sepia(13%) saturate(1861%) hue-rotate(292deg)
     brightness(104%) contrast(112%);
+  width: 200px;
 }
 
 .nav-bar {
@@ -130,6 +131,10 @@ header {
 
 /* Media Queries */
 @media (max-width: 816px) {
+  .logo-svg {
+    width: 190px;
+  }
+
   .main-header-title {
     font-size: 2.6em;
   }
@@ -147,7 +152,7 @@ header {
 
 @media (max-width: 500px) {
   .logo-svg {
-    width: 140px;
+    width: 150px;
   }
 
   .list-item {
@@ -184,7 +189,7 @@ header {
 
 @media (max-width: 460px) {
   .logo-svg {
-    width: 130px;
+    width: 145px;
   }
 
   .list-item {
@@ -218,7 +223,7 @@ header {
 
 @media (max-width: 320px) {
   .logo-svg {
-    width: 120px;
+    width: 125px;
   }
 
   .nav-list {
