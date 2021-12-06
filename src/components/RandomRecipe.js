@@ -1,22 +1,40 @@
 import './random-recipe.css';
+import Skeleton from '../skeletons/Skeleton';
 import ChangeRecipeRightArrow from '../assets/icons/change-recipe-right-arrow.png';
 
-const RandomRecipe = ({ randomRecipe, getRandomRecipe }) => {
+const RandomRecipe = ({
+  isRandomRecipeLoading,
+  handleOnLoadRandomRecipeImage,
+  randomRecipe,
+  getRandomRecipe,
+}) => {
   const recipeTitle = randomRecipe.strMeal;
   const recipeImage = randomRecipe.strMealThumb;
+  const imageStyle = isRandomRecipeLoading ? { display: 'none' } : {};
 
   return (
     <>
       <section id="random-recipe">
         <div className="random-recipe-container">
           <div className="random-recipe-img-container">
-            <img className="random-recipe-img" src={recipeImage} alt="recipe" />
+            {isRandomRecipeLoading && <Skeleton type="thumbnail" />}
+            <img
+              className="random-recipe-img"
+              src={recipeImage}
+              alt="recipe"
+              style={imageStyle}
+              onLoad={handleOnLoadRandomRecipeImage}
+            />
           </div>
           <div className="random-recipe-info-container">
             <div className="random-recipe-section-title">
               <h2>Recipe of the Day</h2>
             </div>
-            <h3 className="random-recipe-title">{recipeTitle}</h3>
+            {isRandomRecipeLoading ? (
+              <Skeleton type="title" />
+            ) : (
+              <h3 className="random-recipe-title">{recipeTitle}</h3>
+            )}
             <p className="random-recipe-tag">
               Learn how to make today's top rated recipe
             </p>

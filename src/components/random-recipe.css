@@ -2,12 +2,18 @@
   display: flex;
   justify-content: center;
   align-items: stretch;
-  height: 80vh;
+  height: 90vh;
   margin: 150px auto;
+  max-width: 90%;
+}
+
+.random-recipe-img-container {
+  width: 50%;
 }
 
 .random-recipe-img {
   height: 100%;
+  width: 100%;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
 }
@@ -93,9 +99,15 @@
 }
 
 /* Media queries */
+@media (max-width: 1440px) {
+  .random-recipe-container {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 1215px) {
   .random-recipe-container {
-    height: 70vh;
+    height: 80vh;
     margin: 130px auto;
   }
 
@@ -104,16 +116,26 @@
   }
 
   .change-random-recipe-icon {
-    width: 45px;
+    width: 42px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .random-recipe-container {
+    height: 70vh;
+  }
+
+  .change-random-recipe-icon {
+    width: 35px;
   }
 }
 
 @media (max-width: 957px) {
   .random-recipe-container {
     flex-direction: column;
-    height: 75vh;
+    height: 90vh;
     width: 65%;
-    margin: 250px auto;
+    margin: 200px auto;
   }
 
   .random-recipe-img-container {
@@ -159,8 +181,7 @@
 
 @media (max-width: 858px) {
   .random-recipe-container {
-    height: 70vh;
-    margin: 200px auto;
+    margin: 150px auto;
   }
 
   .random-recipe-img-container {
@@ -182,14 +203,14 @@
 
 @media (max-width: 668px) {
   .random-recipe-container {
-    width: 80%;
+    width: 85%;
   }
 }
 
 @media (max-width: 543px) {
   .random-recipe-container {
-    height: 75vh;
-    margin: 150px auto;
+    height: 80vh;
+    margin: 120px auto;
   }
 
   .random-recipe-section-title {
@@ -211,8 +232,7 @@
 
 @media (max-width: 389px) {
   .random-recipe-container {
-    height: 60vh;
-    width: 80%;
+    height: 65vh;
     margin: 100px auto;
   }
 
@@ -247,9 +267,7 @@
 
 @media (max-width: 329px) {
   .random-recipe-container {
-    height: 40vh;
-    width: 80%;
-    margin: 150px auto;
+    height: 60vh;
   }
 
   .random-recipe-section-title {
@@ -261,7 +279,7 @@
   }
 
   .random-recipe-tag {
-    font-size: 0.52em;
+    font-size: 0.5em;
   }
 
   .change-random-recipe-icon {

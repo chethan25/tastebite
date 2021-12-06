@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import RandomRecipe from './components/RandomRecipe';
 
 function App() {
+  const [isRandomRecipeLoading, setIsRandomRecipeLoading] = useState(false);
   const [randomRecipe, setRandomRecipe] = useState({});
 
   useEffect(() => {
@@ -15,9 +16,14 @@ function App() {
   }, []);
 
   const getRandomRecipe = async () => {
+    setIsRandomRecipeLoading(true);
     const randomRecipeData = await getRandomRecipeService();
 
     setRandomRecipe(randomRecipeData);
+  };
+
+  const handleOnLoadRandomRecipeImage = () => {
+    setIsRandomRecipeLoading(false);
   };
 
   return (
@@ -25,6 +31,8 @@ function App() {
       <Header />
       <PopularCategories />
       <RandomRecipe
+        isRandomRecipeLoading={isRandomRecipeLoading}
+        handleOnLoadRandomRecipeImage={handleOnLoadRandomRecipeImage}
         randomRecipe={randomRecipe}
         getRandomRecipe={getRandomRecipe}
       />
