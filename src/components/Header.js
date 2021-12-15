@@ -1,4 +1,5 @@
 import './header.css';
+import { Link } from 'react-router-dom';
 import Logo from '../assets/icons/logo.svg';
 import HeaderVideoMp4 from '../assets/videos/header-video.mp4';
 import HeaderVideoWebm from '../assets/videos/header-video.webm';
@@ -15,18 +16,18 @@ const Header = () => {
           </div>
           <nav className="nav-bar">
             <ul className="nav-list">
-              <a href="/">
+              <Link to="/">
                 <li className="list-item">Home</li>
-              </a>
-              <a href="/">
+              </Link>
+              <Link to="/recipes">
                 <li className="list-item">Recipes</li>
-              </a>
-              <a href="/">
+              </Link>
+              <Link to="/">
                 <li className="list-item">About</li>
-              </a>
-              <a href="/">
+              </Link>
+              <Link to="/">
                 <li className="list-item">Contact</li>
-              </a>
+              </Link>
             </ul>
           </nav>
         </div>
