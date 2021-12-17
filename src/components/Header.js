@@ -16,16 +16,16 @@ const Header = () => {
           </div>
           <nav className="nav-bar">
             <ul className="nav-list">
-              <Link to="/">
+              <Link to="/" className="effect-underline">
                 <li className="list-item">Home</li>
               </Link>
-              <Link to="/recipes">
+              <Link to="/recipes" className="effect-underline">
                 <li className="list-item">Recipes</li>
               </Link>
-              <Link to="/">
+              <Link to="/" className="effect-underline">
                 <li className="list-item">About</li>
               </Link>
-              <Link to="/">
+              <Link to="/" className="effect-underline">
                 <li className="list-item">Contact</li>
               </Link>
             </ul>

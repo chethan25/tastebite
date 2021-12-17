@@ -3,6 +3,7 @@
 :root {
   --main-color: #85b72c;
   --secondary-color: #f7f4ee;
+  --dark-color: #000;
 }
 
 html {
