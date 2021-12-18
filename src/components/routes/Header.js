@@ -12,15 +12,8 @@ const Header = () => {
     setNavbarOpen((prev) => !prev);
   };
 
-  // const closeMenu = () => {
-  //   setNavbarOpen(false);
-  // };
-
   return (
     <section id="recipes-header-section">
-      {/* {navbarOpen && (
-        <HamburgerMenu navbarOpen={navbarOpen} handleToggle={handleToggle} />
-      )} */}
       <CSSTransition
         in={navbarOpen}
         unmountOnExit
