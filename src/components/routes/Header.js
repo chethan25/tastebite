@@ -1,10 +1,34 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 import './header.css';
 import Logo from '../../assets/icons/logo.svg';
+import HamburgerMenu from './HamburgerMenu';
 
 const Header = () => {
+  const [navbarOpen, setNavbarOpen] = useState(false);
+
+  const handleToggle = () => {
+    setNavbarOpen((prev) => !prev);
+  };
+
+  // const closeMenu = () => {
+  //   setNavbarOpen(false);
+  // };
+
   return (
     <section id="recipes-header-section">
+      {/* {navbarOpen && (
+        <HamburgerMenu navbarOpen={navbarOpen} handleToggle={handleToggle} />
+      )} */}
+      <CSSTransition
+        in={navbarOpen}
+        unmountOnExit
+        timeout={2000}
+        classNames="hamburger-menu"
+      >
+        <HamburgerMenu navbarOpen={navbarOpen} handleToggle={handleToggle} />
+      </CSSTransition>
       <div className="recipes-header-top-container">
         <div className="recipes-header-logo">
           <img
@@ -35,6 +59,9 @@ const Header = () => {
           </div>
           <div className="recipes-header-bookmark-icon">
             <i className="fas fa-bookmark fa-lg"></i>
+          </div>
+          <div className="recipes-header-bars-icon" onClick={handleToggle}>
+            <i className="fas fa-bars fa-2x"></i>
           </div>
         </div>
       </div>

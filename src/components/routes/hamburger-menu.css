@@ -1,0 +1,120 @@
+#hamburger-menu-section {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--dark-color);
+  height: 100vh;
+  width: 40%;
+  z-index: 10;
+  padding: 30px 20px;
+}
+
+.hamburger-menu-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hamburger-menu-header-logo-svg {
+  filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(49deg) brightness(108%)
+    contrast(101%);
+  width: 110px;
+}
+
+.hamburger-menu-header-close {
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+
+.hamburger-menu-header-close:hover {
+  color: #fff;
+}
+
+.hamburger-menu-nav-bar {
+  margin-top: 40px;
+}
+
+.hamburger-menu-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.hamburger-menu-nav-list a {
+  text-decoration: none;
+}
+
+.hamburger-menu-list-item {
+  color: rgba(255, 255, 255, 0.6);
+  padding: 10px 0;
+  font-size: 1.6em;
+  cursor: pointer;
+}
+
+.hamburger-menu-list-item:hover {
+  color: #fff;
+}
+
+.sign-up-button {
+  margin-top: 40px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 500px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.sign-up-button:hover {
+  background-color: #fff;
+}
+
+.social-media-icons {
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+  margin: 40px auto;
+}
+
+.social-media-icons .fab {
+  cursor: pointer;
+}
+
+.social-media-icons .fab:hover {
+  color: #fff;
+}
+
+/* Media queries */
+@media (max-width: 636px) {
+  #hamburger-menu-section {
+    width: 50%;
+  }
+
+  .hamburger-menu-header-logo-svg {
+    width: 100px;
+  }
+}
+
+@media (max-width: 425px) {
+  #hamburger-menu-section {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .hamburger-menu-header-logo-svg {
+    width: 120px;
+  }
+
+  .sign-up-button {
+    width: 80%;
+    margin: 40px auto;
+  }
+
+  .social-media-icons {
+    margin: 0 auto;
+  }
+}
