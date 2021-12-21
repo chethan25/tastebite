@@ -1,0 +1,142 @@
+.filter-container {
+  width: 100%;
+}
+
+.filter-container-title {
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.filter-types-list {
+  list-style: none;
+  padding: 0;
+  min-height: 14vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.filter-types-list-item {
+  font-size: 1.1em;
+  cursor: pointer;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.filter-types-list-item::after {
+  content: '';
+  width: 1.5em;
+  height: 1.5em;
+  float: right;
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='9' y='2' width='2' height='17' /%3E%3Crect x='1' y='9' width='17' height='2' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+}
+
+.filter-active.filter-types-list-item::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect height='2' width='18' y='9' x='1' /%3E%3C/svg%3E");
+}
+
+.category-filter-list {
+  list-style: none;
+  padding: 0 20px;
+}
+
+.category-filter-list-item {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.category-filter-list-item:hover {
+  color: #528f2d;
+}
+
+.cuisine-filter-list {
+  list-style: none;
+  padding: 0 20px;
+  height: 50vh;
+  width: 85%;
+  overflow-y: auto;
+  margin: 20px 0;
+}
+
+.cuisine-filter-list-item {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.cuisine-filter-list-item:hover {
+  color: #528f2d;
+}
+
+.ingredient-filter-list {
+  list-style: none;
+  padding: 0 20px;
+  height: 50vh;
+  width: 85%;
+  overflow-y: auto;
+}
+
+.ingredient-filter-list-item {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.ingredient-filter-list-item:hover {
+  color: #528f2d;
+}
+
+@media (max-width: 768px) {
+  #mobile-filter-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 40%;
+    z-index: 9;
+    padding: 30px 20px;
+    background-color: #fff;
+  }
+
+  .mobile-filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .mobile-filter-header-close {
+    cursor: pointer;
+  }
+
+  .mobile-filter-header-close:hover {
+    color: #a5a4a4;
+  }
+}
+
+@media (max-width: 525px) {
+  #mobile-filter-container {
+    width: 100%;
+    padding: 30px 30px;
+  }
+
+  .mobile-filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .mobile-filter-header-close {
+    cursor: pointer;
+  }
+
+  .mobile-filter-header-close:hover {
+    color: #a5a4a4;
+  }
+
+  .filter-types-list {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

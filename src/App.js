@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './styles.css';
-import getRandomRecipeService from './services/get-recipes';
+import recipesService from './services/get-recipes';
 import Header from './components/Header';
 import PopularCategories from './components/PopularCategories';
 import Newsletter from './components/Newsletter';
@@ -17,8 +17,7 @@ function App() {
 
   const getRandomRecipe = async () => {
     setIsRandomRecipeLoading(true);
-    const randomRecipeData = await getRandomRecipeService();
-
+    const randomRecipeData = await recipesService.getRandomRecipeService();
     setRandomRecipe(randomRecipeData);
   };
 

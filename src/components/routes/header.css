@@ -14,8 +14,9 @@
 .recipes-header-top-container {
   height: 100px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  margin: 0 3.2rem;
 }
 
 .recipes-header-logo-svg {
@@ -46,11 +47,11 @@
 .recipes-header-icons {
   width: 70px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
-.recipes-header-search-icon {
+.recipes-header-adjust-icon {
   cursor: pointer;
 }
 
@@ -117,7 +118,6 @@
 
 @media (max-width: 768px) {
   .recipes-header-top-container {
-    justify-content: space-between;
     margin: 0 30px;
   }
 
@@ -135,7 +135,7 @@
 
   .recipes-header-bars-icon {
     display: block;
-    margin-left: 25px;
+    margin-left: 15px;
   }
 
   .recipes-header-bottom-overlay {
@@ -152,7 +152,7 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 525px) {
   .recipes-header-top-container {
     height: 85px;
   }
@@ -169,8 +169,20 @@
     width: 110px;
   }
 
+  .fa-adjust {
+    font-size: 1.2em;
+  }
+
+  .fa-bookmark {
+    font-size: 1.2em;
+  }
+
+  .fa-bars {
+    font-size: 1.8em;
+  }
+
   .recipes-header-bars-icon {
-    margin-left: 15px;
+    margin-left: 10px;
   }
 
   .recipes-header-bottom-overlay {
@@ -193,27 +205,27 @@
   }
 
   .recipes-header-logo-svg {
-    width: 110px;
+    width: 100px;
   }
 
   .recipes-header-icons {
-    width: 100px;
+    width: 95px;
   }
 
   .recipes-header-bars-icon {
     margin-left: 10px;
   }
 
-  .fa-search {
-    font-size: 1.2em;
+  .fa-adjust {
+    font-size: 1.1em;
   }
 
   .fa-bookmark {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 
   .fa-bars {
-    font-size: 1.8em;
+    font-size: 1.7em;
   }
 
   .recipes-header-bottom-overlay {
@@ -233,17 +245,18 @@
 @media (max-width: 320px) {
   .recipes-header-top-container {
     height: 70px;
+    margin: 0 10px;
   }
 
   .recipes-header-logo-svg {
-    width: 95px;
+    width: 85px;
   }
 
   .recipes-header-icons {
-    width: 77px;
+    width: 80px;
   }
 
-  .fa-search {
+  .fa-adjust {
     font-size: 1em;
   }
 
@@ -252,7 +265,8 @@
   }
 
   .fa-bars {
-    font-size: 1.5em;
+    font-size: 1.3em;
+    margin-top: 5px;
   }
 
   .recipes-header-bottom-overlay {

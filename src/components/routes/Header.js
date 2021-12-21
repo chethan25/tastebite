@@ -17,10 +17,10 @@ const Header = () => {
       <CSSTransition
         in={navbarOpen}
         unmountOnExit
-        timeout={2000}
+        timeout={800}
         classNames="hamburger-menu"
       >
-        <HamburgerMenu navbarOpen={navbarOpen} handleToggle={handleToggle} />
+        <HamburgerMenu handleToggle={handleToggle} />
       </CSSTransition>
       <div className="recipes-header-top-container">
         <div className="recipes-header-logo">
@@ -47,11 +47,11 @@ const Header = () => {
           </ul>
         </nav>
         <div className="recipes-header-icons">
-          <div className="recipes-header-search-icon">
-            <i className="fas fa-search fa-lg"></i>
-          </div>
-          <div className="recipes-header-bookmark-icon">
+          <div className="recipes-header-bookmark-icon" title="Show Bookmarks">
             <i className="fas fa-bookmark fa-lg"></i>
+          </div>
+          <div className="recipes-header-adjust-icon" title="Change Theme">
+            <i className="fas fa-adjust fa-lg"></i>
           </div>
           <div className="recipes-header-bars-icon" onClick={handleToggle}>
             <i className="fas fa-bars fa-2x"></i>
