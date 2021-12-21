@@ -1,7 +1,6 @@
 #search-results-section {
   width: 90%;
-  /* height: 100vh; */
-  margin: 80px auto;
+  margin: 60px auto;
   display: flex;
 }
 
@@ -143,11 +142,10 @@
 
   .mobile-filter-container {
     cursor: pointer;
-    font-size: 1.3em;
+    font-size: 1.1em;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* color: #528f2d; */
   }
 
   .mobile-filter-text {
@@ -162,6 +160,7 @@
 
   .mobile-total-recipes-text {
     color: #528f2d;
+    font-size: 0.92em;
   }
 
   .mobile-filter-enter {
