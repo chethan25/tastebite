@@ -47,12 +47,13 @@
 .recipes-header-icons {
   width: 70px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
 .recipes-header-adjust-icon {
   cursor: pointer;
+  margin-left: 30px;
 }
 
 .recipes-header-bookmark-icon {
@@ -102,6 +103,14 @@
 
 /* Media queries */
 @media (max-width: 1024px) {
+  .recipes-header-top-container {
+    margin: 0 2rem;
+  }
+
+  .recipes-header-adjust-icon {
+    margin-left: 20px;
+  }
+
   .recipes-header-bottom-overlay {
     height: 30vh;
     background-position: center 8%;
@@ -131,6 +140,11 @@
 
   .recipes-header-icons {
     width: 140px;
+    justify-content: space-around;
+  }
+
+  .recipes-header-adjust-icon {
+    margin-left: 0;
   }
 
   .recipes-header-bars-icon {

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import './search-results.css';
+import Loader from 'react-loader-spinner';
 import recipesService from '../../services/get-recipes';
 import FiltersList from './FiltersList';
 
@@ -13,6 +14,8 @@ const SearchResults = () => {
   const [cuisineList, setCuisineList] = useState([]);
   const [ingredientList, setIngredientList] = useState([]);
 
+  const [isFilterRecipeDataLoading, setIsFilterRecipeDataLoading] =
+    useState(false);
   const [filterRecipeData, setFilterRecipeData] = useState({});
 
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
@@ -37,12 +40,23 @@ const SearchResults = () => {
   };
 
   const handleCategoryItemClick = async (e) => {
+    if (
+      e.target.parentElement.parentElement.parentElement.firstChild.classList.contains(
+        'mobile-filter-header'
+      )
+    ) {
+      setMobileFilterOpen((prev) => !prev);
+    }
+    setIsFilterRecipeDataLoading((prev) => !prev);
+
     const filterCategoryRecipeData =
       await recipesService.getFilterItemRecipeService(
         'c',
         e.target.textContent
       );
     setFilterRecipeData(filterCategoryRecipeData);
+
+    setIsFilterRecipeDataLoading((prev) => !prev);
   };
 
   const handleCuisineClick = () => {
@@ -61,12 +75,23 @@ const SearchResults = () => {
   };
 
   const handleCuisineItemClick = async (e) => {
+    if (
+      e.target.parentElement.parentElement.parentElement.firstChild.classList.contains(
+        'mobile-filter-header'
+      )
+    ) {
+      setMobileFilterOpen((prev) => !prev);
+    }
+    setIsFilterRecipeDataLoading((prev) => !prev);
+
     const filterCuisineRecipeData =
       await recipesService.getFilterItemRecipeService(
         'a',
         e.target.textContent
       );
     setFilterRecipeData(filterCuisineRecipeData);
+
+    setIsFilterRecipeDataLoading((prev) => !prev);
   };
 
   const handleIngredientClick = () => {
@@ -85,15 +110,24 @@ const SearchResults = () => {
   };
 
   const handleIngredientItemClick = async (e) => {
+    if (
+      e.target.parentElement.parentElement.parentElement.firstChild.classList.contains(
+        'mobile-filter-header'
+      )
+    ) {
+      setMobileFilterOpen((prev) => !prev);
+    }
+    setIsFilterRecipeDataLoading((prev) => !prev);
+
     const filterIngredientRecipeData =
       await recipesService.getFilterItemRecipeService(
         'i',
         e.target.textContent
       );
     setFilterRecipeData(filterIngredientRecipeData);
-  };
 
-  console.log(filterRecipeData);
+    setIsFilterRecipeDataLoading((prev) => !prev);
+  };
 
   const handleMobileFilterClick = () => {
     setMobileFilterOpen((prev) => !prev);
@@ -128,7 +162,9 @@ const SearchResults = () => {
               placeholder="Search for recipes..."
               className="recipe-search-input"
             ></input>
-            <span className="total-search-recipes">Showing 23 Recipes</span>
+            <span className="total-search-recipes">
+              Showing {Object.keys(filterRecipeData).length} Recipes
+            </span>
           </div>
           <button type="button" className="recipe-search-btn">
             Search
@@ -143,17 +179,20 @@ const SearchResults = () => {
             <p className="mobile-filter-text">Filters</p>
           </div>
           <div className="mobile-total-recipes">
-            <p className="mobile-total-recipes-text">Showing 23 Recipes</p>
+            <p className="mobile-total-recipes-text">
+              Showing {Object.keys(filterRecipeData).length} Recipes
+            </p>
           </div>
         </div>
         <div className="recipes-results-container">
-          {/* <h2>Recipes</h2> */}
+          {isFilterRecipeDataLoading && <Loader type="TailSpin" />}
+          <h1>Recipes</h1>
         </div>
       </div>
       <CSSTransition
         in={mobileFilterOpen}
         unmountOnExit
-        timeout={800}
+        timeout={500}
         classNames="mobile-filter"
       >
         <FiltersList
