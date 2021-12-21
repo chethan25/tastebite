@@ -13,6 +13,8 @@ const SearchResults = () => {
   const [cuisineList, setCuisineList] = useState([]);
   const [ingredientList, setIngredientList] = useState([]);
 
+  const [filterRecipeData, setFilterRecipeData] = useState({});
+
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
   useEffect(() => {
@@ -34,6 +36,15 @@ const SearchResults = () => {
     setCategoriesList(categoriesListData);
   };
 
+  const handleCategoryItemClick = async (e) => {
+    const filterCategoryRecipeData =
+      await recipesService.getFilterItemRecipeService(
+        'c',
+        e.target.textContent
+      );
+    setFilterRecipeData(filterCategoryRecipeData);
+  };
+
   const handleCuisineClick = () => {
     setIsCuisineSelected((prev) => !prev);
     setIsCategorySelected(true);
@@ -47,6 +58,15 @@ const SearchResults = () => {
   const getCuisineList = async () => {
     const cuisineListData = await recipesService.getFilterListService('a');
     setCuisineList(cuisineListData);
+  };
+
+  const handleCuisineItemClick = async (e) => {
+    const filterCuisineRecipeData =
+      await recipesService.getFilterItemRecipeService(
+        'a',
+        e.target.textContent
+      );
+    setFilterRecipeData(filterCuisineRecipeData);
   };
 
   const handleIngredientClick = () => {
@@ -64,6 +84,17 @@ const SearchResults = () => {
     setIngredientList(ingredientListData);
   };
 
+  const handleIngredientItemClick = async (e) => {
+    const filterIngredientRecipeData =
+      await recipesService.getFilterItemRecipeService(
+        'i',
+        e.target.textContent
+      );
+    setFilterRecipeData(filterIngredientRecipeData);
+  };
+
+  console.log(filterRecipeData);
+
   const handleMobileFilterClick = () => {
     setMobileFilterOpen((prev) => !prev);
   };
@@ -77,12 +108,15 @@ const SearchResults = () => {
             isCategorySelected={isCategorySelected}
             handleCategoryClick={handleCategoryClick}
             categoriesList={categoriesList}
+            handleCategoryItemClick={handleCategoryItemClick}
             isCuisineSelected={isCuisineSelected}
             handleCuisineClick={handleCuisineClick}
             cuisineList={cuisineList}
+            handleCuisineItemClick={handleCuisineItemClick}
             isIngredientSelected={isIngredientSelected}
             handleIngredientClick={handleIngredientClick}
             ingredientList={ingredientList}
+            handleIngredientItemClick={handleIngredientItemClick}
           />
         </div>
       </div>
@@ -134,6 +168,9 @@ const SearchResults = () => {
           ingredientList={ingredientList}
           mobileFilter={true}
           handleMobileFilterClick={handleMobileFilterClick}
+          handleCategoryItemClick={handleCategoryItemClick}
+          handleCuisineItemClick={handleCuisineItemClick}
+          handleIngredientItemClick={handleIngredientItemClick}
         />
       </CSSTransition>
     </section>

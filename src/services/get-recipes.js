@@ -22,5 +22,22 @@ const getFilterListService = async (filterType) => {
   }
 };
 
+const getFilterItemRecipeService = async (filterType, filterItem) => {
+  try {
+    const response = await fetch(
+      `${baseUrl}/filter.php?${filterType}=${filterItem}`
+    );
+    const data = await response.json();
+
+    return data.meals;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 /* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
-export default { getRandomRecipeService, getFilterListService };
+export default {
+  getRandomRecipeService,
+  getFilterListService,
+  getFilterItemRecipeService,
+};

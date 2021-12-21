@@ -4,12 +4,15 @@ const FiltersList = ({
   isCategorySelected,
   handleCategoryClick,
   categoriesList,
+  handleCategoryItemClick,
   isCuisineSelected,
   handleCuisineClick,
   cuisineList,
+  handleCuisineItemClick,
   isIngredientSelected,
   handleIngredientClick,
   ingredientList,
+  handleIngredientItemClick,
   mobileFilter,
   handleMobileFilterClick,
 }) => {
@@ -39,7 +42,11 @@ const FiltersList = ({
         {!isCategorySelected && (
           <ul className="category-filter-list">
             {categoriesList.map((category, index) => (
-              <li key={index} className="category-filter-list-item">
+              <li
+                key={index}
+                className="category-filter-list-item"
+                onClick={handleCategoryItemClick}
+              >
                 {category.strCategory}
               </li>
             ))}
@@ -57,7 +64,11 @@ const FiltersList = ({
         {!isCuisineSelected && (
           <ul className="cuisine-filter-list">
             {cuisineList.map((cuisine, index) => (
-              <li key={index} className="cuisine-filter-list-item">
+              <li
+                key={index}
+                className="cuisine-filter-list-item"
+                onClick={handleCuisineItemClick}
+              >
                 {cuisine.strArea}
               </li>
             ))}
@@ -75,7 +86,11 @@ const FiltersList = ({
         {!isIngredientSelected && (
           <ul className="ingredient-filter-list">
             {ingredientList.map((ingredient, index) => (
-              <li key={index} className="ingredient-filter-list-item">
+              <li
+                key={index}
+                className="ingredient-filter-list-item"
+                onClick={handleIngredientItemClick}
+              >
                 {ingredient.strIngredient}
               </li>
             ))}
