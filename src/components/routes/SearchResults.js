@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import './search-results.css';
 import recipesService from '../../services/get-recipes';
 import FiltersList from './FiltersList';
 
 const SearchResults = () => {
-  const [isCategorySelected, setIsCategorySelected] = useState(true);
+  const [isCategorySelected, setIsCategorySelected] = useState(false);
   const [isCuisineSelected, setIsCuisineSelected] = useState(true);
   const [isIngredientSelected, setIsIngredientSelected] = useState(true);
 
@@ -14,6 +14,10 @@ const SearchResults = () => {
   const [ingredientList, setIngredientList] = useState([]);
 
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+
+  useEffect(() => {
+    getCategoriesList();
+  }, []);
 
   const handleCategoryClick = () => {
     setIsCategorySelected((prev) => !prev);
