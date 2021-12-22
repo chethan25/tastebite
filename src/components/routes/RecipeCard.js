@@ -1,0 +1,59 @@
+import './recipe-card.css';
+
+const RecipeCard = ({
+  recipeCardData,
+  isFilterRecipeDataLoading,
+  handleOnLoadRecipeCardImage,
+}) => {
+  // Get Random Recipe Rating from 1 - 5
+  const min = 1;
+  const max = 5;
+  const ratingNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+  const ratingNumberArray = [...Array(ratingNumber).keys()];
+  const cookingTimeArray = ['20', '10', '30', '45', '60', '120'];
+
+  const imageStyle = isFilterRecipeDataLoading ? { display: 'none' } : {};
+
+  return (
+    <div className="recipe-card-container">
+      <div className="recipe-card-img-container">
+        <img
+          className="recipe-card-img"
+          src={recipeCardData.strMealThumb}
+          alt="recipe"
+          style={imageStyle}
+          onLoad={handleOnLoadRecipeCardImage}
+        />
+        <div className="recipe-card-img-fav-container">
+          <i class="fa fa-heart fa-lg" title="Add to Bookmark"></i>
+        </div>
+      </div>
+      {!isFilterRecipeDataLoading && (
+        <div className="recipe-card-info-container">
+          <div className="recipe-card-title-container">
+            <h3 className="recipe-card-title">{recipeCardData.strMeal}</h3>
+          </div>
+          <div className="recipe-card-info-bottom-container">
+            <div className="recipe-card-rating-icon-container">
+              {ratingNumberArray.map((r) => (
+                <div className="recipe-card-rating-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+              ))}
+            </div>
+            <div className="recipe-card-cooking-time-container">
+              <div className="clock-icon">
+                <i class="far fa-clock"></i>
+              </div>
+              <div className="recipe-card-time-text">
+                {cookingTimeArray[ratingNumber]} mins
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default RecipeCard;

@@ -4,6 +4,7 @@ import './search-results.css';
 import Loader from 'react-loader-spinner';
 import recipesService from '../../services/get-recipes';
 import FiltersList from './FiltersList';
+import RecipeCard from './RecipeCard';
 
 const SearchResults = () => {
   const [isCategorySelected, setIsCategorySelected] = useState(false);
@@ -16,7 +17,7 @@ const SearchResults = () => {
 
   const [isFilterRecipeDataLoading, setIsFilterRecipeDataLoading] =
     useState(false);
-  const [filterRecipeData, setFilterRecipeData] = useState({});
+  const [filterRecipeData, setFilterRecipeData] = useState([]);
 
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
@@ -133,6 +134,10 @@ const SearchResults = () => {
     setMobileFilterOpen((prev) => !prev);
   };
 
+  const handleOnLoadRecipeCardImage = () => {
+    setIsFilterRecipeDataLoading(false);
+  };
+
   return (
     <section id="search-results-section">
       <div className="search-results-left-container">
@@ -185,8 +190,19 @@ const SearchResults = () => {
           </div>
         </div>
         <div className="recipes-results-container">
-          {isFilterRecipeDataLoading && <Loader type="TailSpin" />}
-          <h1>Recipes</h1>
+          {isFilterRecipeDataLoading && (
+            <div className="tail-spin-loader-container">
+              <Loader type="TailSpin" />
+            </div>
+          )}
+          {filterRecipeData.map((filterRecipe) => (
+            <RecipeCard
+              key={filterRecipe.idMeal}
+              recipeCardData={filterRecipe}
+              isFilterRecipeDataLoading={isFilterRecipeDataLoading}
+              handleOnLoadRecipeCardImage={handleOnLoadRecipeCardImage}
+            />
+          ))}
         </div>
       </div>
       <CSSTransition

@@ -47,7 +47,7 @@ const Header = () => {
           </ul>
         </nav>
         <div className="recipes-header-icons">
-          <div className="recipes-header-bookmark-icon" title="Show Bookmarks">
+          <div className="recipes-header-bookmark-icon" title="View Bookmarks">
             <i className="fas fa-bookmark fa-lg"></i>
           </div>
           <div className="recipes-header-adjust-icon" title="Change Theme">
