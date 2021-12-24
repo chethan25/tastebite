@@ -32,7 +32,7 @@
 }
 
 .recipe-card-title {
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: 600;
 }
 
@@ -41,6 +41,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 10px 0;
+  width: 100%;
 }
 
 .recipe-card-rating-icon-container {
@@ -49,6 +50,7 @@
 
 .recipe-card-rating-icon {
   margin-right: 1px;
+  margin: auto;
 }
 
 .fa-star {
@@ -57,9 +59,116 @@
 
 .recipe-card-cooking-time-container {
   display: flex;
+  align-items: center;
+  justify-content: center;
   color: #787878;
 }
 
 .recipe-card-time-text {
   margin-left: 5px;
+  text-align: center;
+}
+
+/* Media queries */
+@media (max-width: 1024px) {
+  .recipe-card-title {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .fa-heart {
+    font-size: 1.4em;
+  }
+
+  .fa-star {
+    font-size: 0.9em;
+  }
+
+  .fa-clock {
+    font-size: 0.9em;
+  }
+
+  .recipe-card-time-text {
+    font-size: 0.93em;
+    text-align: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .recipe-card-title {
+    font-size: 0.85em;
+  }
+
+  .fa-heart {
+    font-size: 1.3em;
+  }
+
+  .fa-star {
+    font-size: 0.8em;
+  }
+
+  .fa-clock {
+    font-size: 0.9em;
+  }
+
+  .recipe-card-time-text {
+    font-size: 0.9em;
+    text-align: center;
+  }
+}
+
+@media (max-width: 375px) {
+  .recipe-card-title {
+    font-size: 0.75em;
+  }
+
+  .recipe-card-img-fav-container {
+    top: 0.8rem;
+    right: 0.8rem;
+  }
+
+  .fa-heart {
+    font-size: 1.2em;
+  }
+
+  .fa-star {
+    font-size: 0.7em;
+  }
+
+  .fa-clock {
+    font-size: 0.7em;
+  }
+
+  .recipe-card-time-text {
+    font-size: 0.7em;
+    text-align: center;
+  }
+}
+
+@media (max-width: 320px) {
+  .recipe-card-title {
+    font-size: 0.7em;
+  }
+
+  .recipe-card-img-fav-container {
+    top: 0.6rem;
+    right: 0.7rem;
+  }
+
+  .fa-heart {
+    font-size: 1em;
+  }
+
+  .fa-star {
+    font-size: 0.6em;
+  }
+
+  .fa-clock {
+    font-size: 0.7em;
+  }
+
+  .recipe-card-time-text {
+    font-size: 0.75em;
+  }
 }

@@ -36,15 +36,11 @@ const RecipeCard = ({
           <div className="recipe-card-info-bottom-container">
             <div className="recipe-card-rating-icon-container">
               {ratingNumberArray.map((r) => (
-                <div className="recipe-card-rating-icon">
-                  <i class="fas fa-star"></i>
-                </div>
+                <i class="fas fa-star"></i>
               ))}
             </div>
             <div className="recipe-card-cooking-time-container">
-              <div className="clock-icon">
-                <i class="far fa-clock"></i>
-              </div>
+              <i class="far fa-clock"></i>
               <div className="recipe-card-time-text">
                 {cookingTimeArray[ratingNumber]} mins
               </div>
