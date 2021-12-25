@@ -5,6 +5,8 @@ import Loader from 'react-loader-spinner';
 import recipesService from '../../services/get-recipes';
 import FiltersList from './FiltersList';
 import RecipeCard from './RecipeCard';
+import Pagination from './Pagination';
+import useWindowDimensions from './useWindowDimensions';
 
 const SearchResults = () => {
   const [isCategorySelected, setIsCategorySelected] = useState(false);
@@ -20,6 +22,10 @@ const SearchResults = () => {
   const [filterRecipeData, setFilterRecipeData] = useState([]);
 
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [cardsPerPage, setCardsPerPage] = useState(16);
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
     getCategoriesList();
@@ -138,6 +144,28 @@ const SearchResults = () => {
     setIsFilterRecipeDataLoading(false);
   };
 
+  // Get current recipe card
+  const indexOfLastCard = currentPage * cardsPerPage;
+  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+  const currentCards = filterRecipeData.slice(
+    indexOfFirstCard,
+    indexOfLastCard
+  );
+
+  useEffect(() => {
+    setCurrentPage(1);
+    if (width <= 1024) {
+      setCardsPerPage(12);
+    } else {
+      setCardsPerPage(16);
+    }
+  }, [filterRecipeData, width]);
+
+  // Change page
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <section id="search-results-section">
       <div className="search-results-left-container">
@@ -195,7 +223,7 @@ const SearchResults = () => {
               <Loader type="TailSpin" />
             </div>
           )}
-          {filterRecipeData.map((filterRecipe) => (
+          {currentCards.map((filterRecipe) => (
             <RecipeCard
               key={filterRecipe.idMeal}
               recipeCardData={filterRecipe}
@@ -204,6 +232,14 @@ const SearchResults = () => {
             />
           ))}
         </div>
+        {!isFilterRecipeDataLoading && (
+          <Pagination
+            cardsPerPage={cardsPerPage}
+            totalCards={filterRecipeData.length}
+            paginate={paginate}
+            currentPage={currentPage}
+          />
+        )}
       </div>
       <CSSTransition
         in={mobileFilterOpen}

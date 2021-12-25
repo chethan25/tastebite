@@ -195,6 +195,7 @@
 @media (max-width: 525px) {
   #mobile-filter-container {
     width: 60%;
+    top: 30%;
     padding: 30px 30px;
   }
 
@@ -222,9 +223,16 @@
 @media (max-width: 425px) {
   #mobile-filter-container {
     width: 100%;
+    top: 32%;
     padding: 30px 30px;
     border: none;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+}
+
+@media (max-width: 375px) {
+  #mobile-filter-container {
+    top: 27%;
   }
 }
