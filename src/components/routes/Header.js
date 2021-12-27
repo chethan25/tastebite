@@ -8,6 +8,7 @@ import HamburgerMenu from './HamburgerMenu';
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
+  // Toggle navbarOpen value whenever hamburger menu is opened or closed
   const handleToggle = () => {
     setNavbarOpen((prev) => !prev);
   };

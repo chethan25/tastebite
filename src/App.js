@@ -11,16 +11,19 @@ function App() {
   const [isRandomRecipeLoading, setIsRandomRecipeLoading] = useState(false);
   const [randomRecipe, setRandomRecipe] = useState({});
 
+  // Display a random recipe on the initial render
   useEffect(() => {
     getRandomRecipe();
   }, []);
 
+  // Fetch random recipe data and store it in state
   const getRandomRecipe = async () => {
     setIsRandomRecipeLoading(true);
     const randomRecipeData = await recipesService.getRandomRecipeService();
     setRandomRecipe(randomRecipeData);
   };
 
+  // Set state to false after image has loaded
   const handleOnLoadRandomRecipeImage = () => {
     setIsRandomRecipeLoading(false);
   };

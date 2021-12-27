@@ -5,7 +5,7 @@ const RecipeCard = ({
   isFilterRecipeDataLoading,
   handleOnLoadRecipeCardImage,
 }) => {
-  // Get Random Recipe Rating from 1 - 5
+  // Get random recipe rating from 1 - 5
   const min = 1;
   const max = 5;
   const ratingNumber = Math.floor(Math.random() * (max - min + 1)) + min;

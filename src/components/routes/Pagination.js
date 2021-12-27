@@ -4,6 +4,7 @@ import './pagination.css';
 const Pagination = ({ cardsPerPage, totalCards, paginate, currentPage }) => {
   const cardNumbers = [];
 
+  // Find number of pages required
   for (let i = 1; i <= Math.ceil(totalCards / cardsPerPage); i++) {
     cardNumbers.push(i);
   }

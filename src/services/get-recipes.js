@@ -1,5 +1,8 @@
+// Request https://www.themealdb.com/api.php for all recipe data
+
 const baseUrl = 'https://www.themealdb.com/api/json/v1/1';
 
+// Get random recipe data
 const getRandomRecipeService = async () => {
   try {
     const response = await fetch(`${baseUrl}/random.php`);
@@ -11,6 +14,7 @@ const getRandomRecipeService = async () => {
   }
 };
 
+// Get different types of filters list
 const getFilterListService = async (filterType) => {
   try {
     const response = await fetch(`${baseUrl}/list.php?${filterType}=list`);
@@ -22,6 +26,7 @@ const getFilterListService = async (filterType) => {
   }
 };
 
+// Get filter type recipes
 const getFilterItemRecipeService = async (filterType, filterItem) => {
   try {
     const response = await fetch(
@@ -35,6 +40,7 @@ const getFilterItemRecipeService = async (filterType, filterItem) => {
   }
 };
 
+// Get recipes based on user input
 const getRecipeSearchService = async (searchInput) => {
   try {
     const response = await fetch(`${baseUrl}/search.php?s=${searchInput}`);

@@ -10,6 +10,7 @@ import SearchIcon from '../assets/icons/search.svg';
 const Header = () => {
   const [searchInput, setSearchInput] = useState('');
 
+  // Store user input in a state
   const handleSearchInputChange = (e) => {
     setSearchInput(e.target.value);
   };

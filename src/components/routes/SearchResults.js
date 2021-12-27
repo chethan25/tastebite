@@ -9,6 +9,7 @@ import Pagination from './Pagination';
 import useWindowDimensions from './useWindowDimensions';
 
 const SearchResults = () => {
+  // Recipe filters
   const [isCategorySelected, setIsCategorySelected] = useState(false);
   const [isCuisineSelected, setIsCuisineSelected] = useState(true);
   const [isIngredientSelected, setIsIngredientSelected] = useState(true);
@@ -17,24 +18,30 @@ const SearchResults = () => {
   const [cuisineList, setCuisineList] = useState([]);
   const [ingredientList, setIngredientList] = useState([]);
 
+  // Recipe data
   const [isRecipeDataLoading, setIsRecipeDataLoading] = useState(false);
   const [recipeData, setRecipeData] = useState([]);
   const [numberOfRecipes, setNumberOfRecipes] = useState(0);
 
+  // Hamburger Menu
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
+  // Screen size
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(16);
   const { width } = useWindowDimensions();
 
+  // Search input
   const [recipeSearchInput, setRecipeSearchInput] = useState('');
   const [noRecipesFound, setNoRecipesFound] = useState(false);
 
+  // Render category list and recipe cards on initial render
   useEffect(() => {
     getCategoriesList();
     getInitialRecipes();
   }, []);
 
+  // Get and render category list data on user click
   const handleCategoryClick = () => {
     setIsCategorySelected((prev) => !prev);
     setIsCuisineSelected(true);
@@ -50,6 +57,9 @@ const SearchResults = () => {
     setCategoriesList(categoriesListData);
   };
 
+  // Close hamburger menu
+  // Get category item data
+  // Find number of recipes found
   const handleCategoryItemClick = async (e) => {
     if (
       e.target.parentElement.parentElement.parentElement.firstChild.classList.contains(
@@ -60,7 +70,6 @@ const SearchResults = () => {
     }
 
     setIsRecipeDataLoading((prev) => !prev);
-    setIsRecipeDataLoading(true);
 
     const filterCategoryRecipeData =
       await recipesService.getFilterItemRecipeService(
@@ -74,6 +83,7 @@ const SearchResults = () => {
     setNumberOfRecipes(Object.keys(filterCategoryRecipeData).length);
   };
 
+  // Get and render cuisine list data on user click
   const handleCuisineClick = () => {
     setIsCuisineSelected((prev) => !prev);
     setIsCategorySelected(true);
@@ -89,6 +99,9 @@ const SearchResults = () => {
     setCuisineList(cuisineListData);
   };
 
+  // Close hamburger menu
+  // Get cuisine item data
+  // Find number of recipes found
   const handleCuisineItemClick = async (e) => {
     if (
       e.target.parentElement.parentElement.parentElement.firstChild.classList.contains(
@@ -112,6 +125,7 @@ const SearchResults = () => {
     setNumberOfRecipes(Object.keys(filterCuisineRecipeData).length);
   };
 
+  // Get and render ingredient list data on user click
   const handleIngredientClick = () => {
     setIsIngredientSelected((prev) => !prev);
     setIsCategorySelected(true);
@@ -127,6 +141,9 @@ const SearchResults = () => {
     setIngredientList(ingredientListData);
   };
 
+  // Close hamburger menu
+  // Get ingredient item data
+  // Find number of recipes found
   const handleIngredientItemClick = async (e) => {
     if (
       e.target.parentElement.parentElement.parentElement.firstChild.classList.contains(
@@ -150,6 +167,7 @@ const SearchResults = () => {
     setNumberOfRecipes(Object.keys(filterIngredientRecipeData).length);
   };
 
+  // Open and close hamburger menu
   const handleMobileFilterClick = () => {
     setMobileFilterOpen((prev) => !prev);
   };
@@ -163,6 +181,7 @@ const SearchResults = () => {
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currentCards = recipeData.slice(indexOfFirstCard, indexOfLastCard);
 
+  // Change number of recipe cards shown based on user screen size
   useEffect(() => {
     setCurrentPage(1);
     if (width <= 1024) {
@@ -177,6 +196,8 @@ const SearchResults = () => {
     setCurrentPage(pageNumber);
   };
 
+  // get recipe data to be shown on initial render
+  // Find number of recipes found
   const getInitialRecipes = async () => {
     setIsRecipeDataLoading((prev) => !prev);
     const InitialRecipeData = await recipesService.getRecipeSearchService('');
@@ -186,14 +207,15 @@ const SearchResults = () => {
     setNumberOfRecipes(Object.keys(InitialRecipeData).length);
   };
 
+  // Store user input in a state
   const handleRecipeSearchInputChange = (e) => {
     setRecipeSearchInput(e.target.value);
   };
 
+  // Get recipe data for user input
   const handleOnSubmitSearchInput = async (e) => {
     e.preventDefault();
     setIsRecipeDataLoading((prev) => !prev);
-    setNoRecipesFound(false);
 
     const searchRecipeData = await recipesService.getRecipeSearchService(
       recipeSearchInput
