@@ -104,6 +104,16 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
+  margin-top: 100px;
+}
+
+.recipes-results-not-found-title {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
 }
 
 /* Media queries */
@@ -128,6 +138,10 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin-top: 2rem;
+  }
+
+  .recipes-results-not-found-title {
+    font-size: 1.2em;
   }
 }
 
@@ -302,10 +316,24 @@
     transform: translateY(100%);
     transition: all 700ms ease;
   }
+
+  .recipes-results-not-found-title {
+    font-size: 1.1em;
+  }
 }
 
 @media (max-width: 375px) {
   .recipe-search-input {
     padding: 8px;
+  }
+
+  .recipes-results-not-found-title {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 320px) {
+  .recipes-results-not-found-title {
+    font-size: 0.9em;
   }
 }

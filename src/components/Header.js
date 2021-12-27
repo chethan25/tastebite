@@ -1,4 +1,5 @@
 import './header.css';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/icons/logo.svg';
 import HeaderVideoMp4 from '../assets/videos/header-video.mp4';
@@ -7,6 +8,12 @@ import HeaderImage from '../assets/images/headerbg.jpeg';
 import SearchIcon from '../assets/icons/search.svg';
 
 const Header = () => {
+  const [searchInput, setSearchInput] = useState('');
+
+  const handleSearchInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
   return (
     <>
       <header className="header">
@@ -44,6 +51,8 @@ const Header = () => {
                 className="search-input"
                 type="text"
                 placeholder="I want to make..."
+                onChange={handleSearchInputChange}
+                value={searchInput}
               />
             </div>
             <div className="search-icon">

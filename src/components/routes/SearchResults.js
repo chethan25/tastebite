@@ -17,9 +17,9 @@ const SearchResults = () => {
   const [cuisineList, setCuisineList] = useState([]);
   const [ingredientList, setIngredientList] = useState([]);
 
-  const [isFilterRecipeDataLoading, setIsFilterRecipeDataLoading] =
-    useState(false);
-  const [filterRecipeData, setFilterRecipeData] = useState([]);
+  const [isRecipeDataLoading, setIsRecipeDataLoading] = useState(false);
+  const [recipeData, setRecipeData] = useState([]);
+  const [numberOfRecipes, setNumberOfRecipes] = useState(0);
 
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
@@ -27,8 +27,12 @@ const SearchResults = () => {
   const [cardsPerPage, setCardsPerPage] = useState(16);
   const { width } = useWindowDimensions();
 
+  const [recipeSearchInput, setRecipeSearchInput] = useState('');
+  const [noRecipesFound, setNoRecipesFound] = useState(false);
+
   useEffect(() => {
     getCategoriesList();
+    getInitialRecipes();
   }, []);
 
   const handleCategoryClick = () => {
@@ -54,16 +58,20 @@ const SearchResults = () => {
     ) {
       setMobileFilterOpen((prev) => !prev);
     }
-    setIsFilterRecipeDataLoading((prev) => !prev);
+
+    setIsRecipeDataLoading((prev) => !prev);
+    setIsRecipeDataLoading(true);
 
     const filterCategoryRecipeData =
       await recipesService.getFilterItemRecipeService(
         'c',
         e.target.textContent
       );
-    setFilterRecipeData(filterCategoryRecipeData);
 
-    setIsFilterRecipeDataLoading((prev) => !prev);
+    setNoRecipesFound(false);
+    setRecipeData(filterCategoryRecipeData);
+    setIsRecipeDataLoading((prev) => !prev);
+    setNumberOfRecipes(Object.keys(filterCategoryRecipeData).length);
   };
 
   const handleCuisineClick = () => {
@@ -89,16 +97,19 @@ const SearchResults = () => {
     ) {
       setMobileFilterOpen((prev) => !prev);
     }
-    setIsFilterRecipeDataLoading((prev) => !prev);
+
+    setIsRecipeDataLoading((prev) => !prev);
 
     const filterCuisineRecipeData =
       await recipesService.getFilterItemRecipeService(
         'a',
         e.target.textContent
       );
-    setFilterRecipeData(filterCuisineRecipeData);
 
-    setIsFilterRecipeDataLoading((prev) => !prev);
+    setNoRecipesFound(false);
+    setRecipeData(filterCuisineRecipeData);
+    setIsRecipeDataLoading((prev) => !prev);
+    setNumberOfRecipes(Object.keys(filterCuisineRecipeData).length);
   };
 
   const handleIngredientClick = () => {
@@ -124,16 +135,19 @@ const SearchResults = () => {
     ) {
       setMobileFilterOpen((prev) => !prev);
     }
-    setIsFilterRecipeDataLoading((prev) => !prev);
+
+    setIsRecipeDataLoading((prev) => !prev);
 
     const filterIngredientRecipeData =
       await recipesService.getFilterItemRecipeService(
         'i',
         e.target.textContent
       );
-    setFilterRecipeData(filterIngredientRecipeData);
 
-    setIsFilterRecipeDataLoading((prev) => !prev);
+    setNoRecipesFound(false);
+    setRecipeData(filterIngredientRecipeData);
+    setIsRecipeDataLoading((prev) => !prev);
+    setNumberOfRecipes(Object.keys(filterIngredientRecipeData).length);
   };
 
   const handleMobileFilterClick = () => {
@@ -141,16 +155,13 @@ const SearchResults = () => {
   };
 
   const handleOnLoadRecipeCardImage = () => {
-    setIsFilterRecipeDataLoading(false);
+    setIsRecipeDataLoading(false);
   };
 
   // Get current recipe card
   const indexOfLastCard = currentPage * cardsPerPage;
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
-  const currentCards = filterRecipeData.slice(
-    indexOfFirstCard,
-    indexOfLastCard
-  );
+  const currentCards = recipeData.slice(indexOfFirstCard, indexOfLastCard);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -159,11 +170,45 @@ const SearchResults = () => {
     } else {
       setCardsPerPage(16);
     }
-  }, [filterRecipeData, width]);
+  }, [recipeData, width]);
 
   // Change page
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+
+  const getInitialRecipes = async () => {
+    setIsRecipeDataLoading((prev) => !prev);
+    const InitialRecipeData = await recipesService.getRecipeSearchService('');
+
+    setRecipeData(InitialRecipeData);
+    setIsRecipeDataLoading((prev) => !prev);
+    setNumberOfRecipes(Object.keys(InitialRecipeData).length);
+  };
+
+  const handleRecipeSearchInputChange = (e) => {
+    setRecipeSearchInput(e.target.value);
+  };
+
+  const handleOnSubmitSearchInput = async (e) => {
+    e.preventDefault();
+    setIsRecipeDataLoading((prev) => !prev);
+    setNoRecipesFound(false);
+
+    const searchRecipeData = await recipesService.getRecipeSearchService(
+      recipeSearchInput
+    );
+
+    if (searchRecipeData === null) {
+      setNoRecipesFound(true);
+      setNumberOfRecipes(0);
+    } else {
+      setRecipeData(searchRecipeData);
+      setNumberOfRecipes(Object.keys(searchRecipeData).length);
+    }
+
+    setRecipeSearchInput('');
+    setIsRecipeDataLoading((prev) => !prev);
   };
 
   return (
@@ -188,18 +233,23 @@ const SearchResults = () => {
         </div>
       </div>
       <div className="search-results-right-container">
-        <form className="recipe-search-form">
+        <form
+          className="recipe-search-form"
+          onSubmit={handleOnSubmitSearchInput}
+        >
           <div className="recipe-search-input-container">
             <input
+              className="recipe-search-input"
               type="text"
               placeholder="Search for recipes..."
-              className="recipe-search-input"
+              value={recipeSearchInput}
+              onChange={handleRecipeSearchInputChange}
             ></input>
             <span className="total-search-recipes">
-              Showing {Object.keys(filterRecipeData).length} Recipes
+              Showing {numberOfRecipes} Recipes
             </span>
           </div>
-          <button type="button" className="recipe-search-btn">
+          <button type="submit" className="recipe-search-btn">
             Search
           </button>
         </form>
@@ -213,33 +263,40 @@ const SearchResults = () => {
           </div>
           <div className="mobile-total-recipes">
             <p className="mobile-total-recipes-text">
-              Showing {Object.keys(filterRecipeData).length} Recipes
+              Showing {Object.keys(recipeData).length} Recipes
             </p>
           </div>
         </div>
         <div className="recipes-results-container">
-          {isFilterRecipeDataLoading && (
+          {noRecipesFound ? (
+            <h1 className="recipes-results-not-found-title">
+              Sorry! No Recipes Found :(
+            </h1>
+          ) : isRecipeDataLoading ? (
             <div className="tail-spin-loader-container">
               <Loader type="TailSpin" />
             </div>
+          ) : (
+            currentCards.map((filterRecipe) => (
+              <RecipeCard
+                key={filterRecipe.idMeal}
+                recipeCardData={filterRecipe}
+                isRecipeDataLoading={isRecipeDataLoading}
+                handleOnLoadRecipeCardImage={handleOnLoadRecipeCardImage}
+              />
+            ))
           )}
-          {currentCards.map((filterRecipe) => (
-            <RecipeCard
-              key={filterRecipe.idMeal}
-              recipeCardData={filterRecipe}
-              isFilterRecipeDataLoading={isFilterRecipeDataLoading}
-              handleOnLoadRecipeCardImage={handleOnLoadRecipeCardImage}
-            />
-          ))}
         </div>
-        {!isFilterRecipeDataLoading && (
-          <Pagination
-            cardsPerPage={cardsPerPage}
-            totalCards={filterRecipeData.length}
-            paginate={paginate}
-            currentPage={currentPage}
-          />
-        )}
+        {noRecipesFound
+          ? ''
+          : !isRecipeDataLoading && (
+              <Pagination
+                cardsPerPage={cardsPerPage}
+                totalCards={recipeData.length}
+                paginate={paginate}
+                currentPage={currentPage}
+              />
+            )}
       </div>
       <CSSTransition
         in={mobileFilterOpen}

@@ -35,9 +35,21 @@ const getFilterItemRecipeService = async (filterType, filterItem) => {
   }
 };
 
+const getRecipeSearchService = async (searchInput) => {
+  try {
+    const response = await fetch(`${baseUrl}/search.php?s=${searchInput}`);
+    const data = await response.json();
+
+    return data.meals;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 /* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
 export default {
   getRandomRecipeService,
   getFilterListService,
   getFilterItemRecipeService,
+  getRecipeSearchService,
 };
