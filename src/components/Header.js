@@ -15,6 +15,11 @@ const Header = () => {
     setSearchInput(e.target.value);
   };
 
+  const handleOnSubmitSearchInput = (e) => {
+    e.preventDefault();
+    setSearchInput('');
+  };
+
   return (
     <>
       <header className="header">
@@ -46,7 +51,10 @@ const Header = () => {
           <p className="main-header-tag">
             Learn how to make your favourite restaurant’s dishes
           </p>
-          <form className="main-header-form">
+          <form
+            className="main-header-form"
+            onSubmit={handleOnSubmitSearchInput}
+          >
             <div className="main-header-search">
               <input
                 className="search-input"
