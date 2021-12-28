@@ -1,7 +1,7 @@
 #newsletter-section {
   margin-top: 50px;
   height: 70vh;
-  background: url(../assets/images/newsletter.jpg) center center/cover;
+  background: url('../../assets//images//newsletter.jpg') center center/cover;
 }
 
 .newsletter-section-container {
@@ -106,7 +106,8 @@
 
 @media (max-width: 650px) {
   #newsletter-section {
-    background: url(../assets/images/newsletter-mobile.jpg) center center/cover;
+    background: url('../../assets//images//newsletter-mobile.jpg') center
+      center/cover;
     height: 35vh;
   }
 

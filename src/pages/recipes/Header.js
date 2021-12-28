@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import './header.css';
-import Logo from '../../assets/icons/logo.svg';
+
 import HamburgerMenu from './HamburgerMenu';
+
+import Logo from '../../assets/icons/logo.svg';
+
+import './header.css';
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);

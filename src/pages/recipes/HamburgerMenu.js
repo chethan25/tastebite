@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
-import './hamburger-menu.css';
+
 import Logo from '../../assets/icons/logo.svg';
+
+import './hamburger-menu.css';
 
 const HamburgerMenu = ({ handleToggle }) => {
   return (

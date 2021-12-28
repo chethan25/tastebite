@@ -1,11 +1,13 @@
-import './header.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../assets/icons/logo.svg';
-import HeaderVideoMp4 from '../assets/videos/header-video.mp4';
-import HeaderVideoWebm from '../assets/videos/header-video.webm';
-import HeaderImage from '../assets/images/headerbg.jpeg';
-import SearchIcon from '../assets/icons/search.svg';
+
+import Logo from '../../assets/icons/logo.svg';
+import SearchIcon from '../../assets/icons/search.svg';
+import HeaderImage from '../../assets/images/headerbg.jpeg';
+import HeaderVideoMp4 from '../../assets/videos/header-video.mp4';
+import HeaderVideoWebm from '../../assets/videos/header-video.webm';
+
+import './header.css';
 
 const Header = () => {
   const [searchInput, setSearchInput] = useState('');

@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
-import { CSSTransition } from 'react-transition-group';
-import './search-results.css';
 import Loader from 'react-loader-spinner';
+import { CSSTransition } from 'react-transition-group';
+
 import recipesService from '../../services/get-recipes';
-import FiltersList from './FiltersList';
+
 import RecipeCard from './RecipeCard';
 import Pagination from './Pagination';
+import FiltersList from './FiltersList';
+
 import useWindowDimensions from './useWindowDimensions';
+
+import './search-results.css';
 
 const SearchResults = () => {
   // Recipe filters

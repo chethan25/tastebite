@@ -1,6 +1,7 @@
+import Skeleton from '../../skeletons/Skeleton';
+import ChangeRecipeRightArrow from '../../assets/icons/change-recipe-right-arrow.png';
+
 import './random-recipe.css';
-import Skeleton from '../skeletons/Skeleton';
-import ChangeRecipeRightArrow from '../assets/icons/change-recipe-right-arrow.png';
 
 const RandomRecipe = ({
   isRandomRecipeLoading,

@@ -1,11 +1,12 @@
-import BreakfastIcon from '../assets/icons/breakfast.svg';
-import VegetarianIcon from '../assets/icons/vegetarian.svg';
-import SeafoodIcon from '../assets/icons/seafood.svg';
-import StarterIcon from '../assets/icons/starter.png';
-import ChickenIcon from '../assets/icons/chicken.svg';
-import DessertIcon from '../assets/icons/dessert.png';
-import PastaIcon from '../assets/icons/pasta.png';
-import VeganIcon from '../assets/icons/vegan.png';
+import PastaIcon from '../../assets/icons/pasta.png';
+import VeganIcon from '../../assets/icons/vegan.png';
+import SeafoodIcon from '../../assets/icons/seafood.svg';
+import StarterIcon from '../../assets/icons/starter.png';
+import ChickenIcon from '../../assets/icons/chicken.svg';
+import DessertIcon from '../../assets/icons/dessert.png';
+import BreakfastIcon from '../../assets/icons/breakfast.svg';
+import VegetarianIcon from '../../assets/icons/vegetarian.svg';
+
 import './popular-categories.css';
 
 const PopularCategories = () => {
