@@ -4,7 +4,7 @@ import SearchResults from './SearchResults';
 const Recipes = () => {
   return (
     <>
-      <Header />
+      <Header headerTitle="Recipe Archive" />
       <SearchResults />
     </>
   );

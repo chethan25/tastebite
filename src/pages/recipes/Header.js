@@ -8,7 +8,7 @@ import Logo from '../../assets/icons/logo.svg';
 
 import './header.css';
 
-const Header = () => {
+const Header = ({ headerTitle }) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   // Toggle navbarOpen value whenever hamburger menu is opened or closed
@@ -65,7 +65,7 @@ const Header = () => {
       <div className="recipes-header-bottom-overlay">
         <div className="recipes-header-bottom-container">
           <div className="recipes-header-subheader">
-            <p className="recipes-header-subheader-text">Recipes Archive</p>
+            <p className="recipes-header-subheader-text">{headerTitle}</p>
           </div>
         </div>
       </div>
