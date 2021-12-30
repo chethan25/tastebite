@@ -52,10 +52,23 @@ const getRecipeSearchService = async (searchInput) => {
   }
 };
 
+// Get recipes based on mealId
+const getRecipeByIdService = async (mealId) => {
+  try {
+    const response = await fetch(`${baseUrl}/lookup.php?i=${mealId}`);
+    const data = await response.json();
+
+    return data.meals;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 /* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
 export default {
   getRandomRecipeService,
   getFilterListService,
   getFilterItemRecipeService,
   getRecipeSearchService,
+  getRecipeByIdService,
 };
