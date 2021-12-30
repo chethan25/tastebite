@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import Skeleton from '../../skeletons/Skeleton';
 import ChangeRecipeRightArrow from '../../assets/icons/change-recipe-right-arrow.png';
 
@@ -46,12 +48,15 @@ const RandomRecipe = ({
                 alt="change-random-recipe"
               ></img>
             </div>
-            <a className="view-recipe-link" href="/">
+            <Link
+              to={`/recipe-details/${randomRecipe.idMeal}`}
+              className="view-recipe-link"
+            >
               <div className="view-recipe-container">
                 <p className="view-recipe-text">View Recipe</p>
                 <i class="fas fa-arrow-right"></i>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
