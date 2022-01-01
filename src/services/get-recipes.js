@@ -58,7 +58,7 @@ const getRecipeByIdService = async (mealId) => {
     const response = await fetch(`${baseUrl}/lookup.php?i=${mealId}`);
     const data = await response.json();
 
-    return data.meals;
+    return data.meals[0];
   } catch (error) {
     console.log(error);
   }
