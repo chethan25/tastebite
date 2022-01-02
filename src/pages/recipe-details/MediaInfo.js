@@ -1,6 +1,7 @@
 import './media-info.css';
 
 const MediaInfo = ({ mealDetails }) => {
+  // Get youtube video id
   let videoId;
   if (mealDetails.strYoutube === null) {
     videoId = null;
