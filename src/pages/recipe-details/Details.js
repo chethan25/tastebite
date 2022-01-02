@@ -2,6 +2,7 @@ import Loader from 'react-loader-spinner';
 
 import HeaderInfo from './HeaderInfo';
 import SectionInfo from './SectionInfo';
+import MediaInfo from './MediaInfo';
 
 const Details = ({
   mealDetails,
@@ -20,6 +21,7 @@ const Details = ({
         handleOnLoadRecipeImage={handleOnLoadRecipeImage}
       />
       <SectionInfo mealDetails={mealDetails} />
+      <MediaInfo mealDetails={mealDetails} />
     </>
   );
 };
