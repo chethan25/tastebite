@@ -45,14 +45,15 @@
 }
 
 .recipe-title {
-  font-size: 2.8em;
+  font-size: 2.6em;
   font-weight: 600;
 }
 
 .recipe-description-container {
   margin-bottom: 3rem;
   font-size: 1.2em;
-  font-weight: 300;
+  font-weight: 400;
+  color: #4a4a4a;
 }
 
 .recipe-type-container {
@@ -60,7 +61,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-weight: 300;
+  font-weight: 400;
+  color: #4a4a4a;
 }
 
 .recipe-category-container {
@@ -196,12 +198,11 @@ hr {
 
   .recipe-description-container {
     margin-bottom: 2.5rem;
-    font-size: 1em;
-    font-weight: 300;
+    font-size: 1.1em;
   }
 
   .recipe-type-container {
-    font-size: 0.88em;
+    font-size: 0.9em;
   }
 
   .recipe-category-container {
@@ -278,11 +279,10 @@ hr {
   .recipe-description-container {
     margin-bottom: 2.5rem;
     font-size: 1em;
-    font-weight: 300;
   }
 
   .recipe-type-container {
-    font-size: 0.8em;
+    font-size: 0.85em;
   }
 
   .recipe-category-container {
@@ -354,11 +354,10 @@ hr {
   .recipe-description-container {
     margin-bottom: 1.7rem;
     font-size: 0.9em;
-    font-weight: 300;
   }
 
   .recipe-type-container {
-    font-size: 0.7em;
+    font-size: 0.73em;
   }
 
   .recipe-category-container {
@@ -438,8 +437,7 @@ hr {
 
   .recipe-description-container {
     margin-bottom: 3rem;
-    font-size: 1em;
-    font-weight: 300;
+    font-size: 1.1em;
   }
 
   .recipe-type-container {
@@ -447,7 +445,6 @@ hr {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-weight: 300;
     font-size: 0.85em;
   }
 
@@ -589,7 +586,6 @@ hr {
   .recipe-description-container {
     margin-bottom: 2.5rem;
     font-size: 0.9em;
-    font-weight: 300;
   }
 
   .recipe-type-container {
@@ -597,8 +593,8 @@ hr {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-weight: 300;
     font-size: 0.8em;
+    height: 80px;
   }
 
   .recipe-category-container {
@@ -620,7 +616,6 @@ hr {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 100px;
     padding-right: 3rem;
     border-right: 2px solid #eaecf0;
   }
@@ -760,15 +755,18 @@ hr {
   .recipe-category-container {
     padding-right: 2.5rem;
     justify-content: space-evenly;
+    height: 90px;
   }
 
   .recipe-cuisine-container {
     padding-right: 2.5rem;
     justify-content: space-evenly;
+    height: 90px;
   }
 
   .recipe-serves-container {
     justify-content: space-evenly;
+    height: 90px;
   }
 
   hr {
@@ -812,13 +810,15 @@ hr {
   }
 
   .recipe-category-container {
-    padding-right: 2.5rem;
-    justify-content: space-evenly;
+    height: 80px;
   }
 
   .recipe-cuisine-container {
-    padding-right: 2.5rem;
-    justify-content: space-evenly;
+    height: 80px;
+  }
+
+  .recipe-serves-container {
+    height: 80px;
   }
 
   hr {

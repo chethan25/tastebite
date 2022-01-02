@@ -1,5 +1,3 @@
-import Loader from 'react-loader-spinner';
-
 import Skeleton from '../../skeletons/Skeleton';
 
 import './header-info.css';
@@ -19,11 +17,7 @@ const HeaderInfo = ({
 
   const imageStyle = isMealDetailsLoading ? { display: 'none' } : {};
 
-  return isMealDetailsLoading ? (
-    <div className="details-tail-spin-loader-container">
-      <Loader type="TailSpin" />
-    </div>
-  ) : (
+  return (
     <section className="recipe-short-info-section">
       <div className="recipe-img-container">
         {isMealDetailsLoading && <Skeleton type="recipe-image" />}
