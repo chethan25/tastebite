@@ -229,6 +229,7 @@ const SearchResults = () => {
       setNoRecipesFound(true);
       setNumberOfRecipes(0);
     } else {
+      setNoRecipesFound(false);
       setRecipeData(searchRecipeData);
       setNumberOfRecipes(Object.keys(searchRecipeData).length);
     }
