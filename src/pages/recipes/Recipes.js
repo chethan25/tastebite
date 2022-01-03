@@ -1,4 +1,3 @@
-import Footer from '../home/Footer';
 import Header from './Header';
 import SearchResults from './SearchResults';
 
@@ -7,7 +6,6 @@ const Recipes = () => {
     <>
       <Header headerTitle="Recipe Archive" />
       <SearchResults />
-      <Footer />
     </>
   );
 };
