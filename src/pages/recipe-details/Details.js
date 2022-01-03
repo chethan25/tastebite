@@ -3,6 +3,7 @@ import Loader from 'react-loader-spinner';
 import HeaderInfo from './HeaderInfo';
 import SectionInfo from './SectionInfo';
 import MediaInfo from './MediaInfo';
+import Footer from '../home/Footer';
 
 const Details = ({
   mealDetails,
@@ -22,6 +23,7 @@ const Details = ({
       />
       <SectionInfo mealDetails={mealDetails} />
       <MediaInfo mealDetails={mealDetails} />
+      <Footer />
     </>
   );
 };
