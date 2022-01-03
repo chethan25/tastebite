@@ -196,7 +196,7 @@
   }
 
   .ingredients-list {
-    max-height: 70vh;
+    max-height: 100vh;
     flex-wrap: wrap;
   }
 
