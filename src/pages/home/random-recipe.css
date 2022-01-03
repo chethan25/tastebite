@@ -209,8 +209,12 @@
 
 @media (max-width: 543px) {
   .random-recipe-container {
-    height: 80vh;
+    height: 70vh;
     margin: 120px auto;
+  }
+
+  .random-recipe-img-container {
+    height: 65%;
   }
 
   .random-recipe-section-title {
@@ -232,7 +236,7 @@
 
 @media (max-width: 389px) {
   .random-recipe-container {
-    height: 65vh;
+    height: 70vh;
     margin: 100px auto;
   }
 
