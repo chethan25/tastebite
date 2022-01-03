@@ -8,6 +8,7 @@ const RecipeCard = ({
   handleOnLoadRecipeCardImage,
 }) => {
   // Get random recipe rating from 1 - 5
+  // useMemo - used to prevent generating new random number on every re-render
   const ratingNumber = useMemo(
     () => Math.floor(Math.random() * (5 - 1 + 1) + 1),
     []
