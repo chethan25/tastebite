@@ -108,7 +108,7 @@
   #newsletter-section {
     background: url('../../assets//images//newsletter-mobile.jpg') center
       center/cover;
-    height: 35vh;
+    height: 30vh;
   }
 
   .newsletter-section-container {
@@ -122,7 +122,7 @@
 
   .newsletter-tag {
     width: 200px;
-    font-size: 0.6em;
+    font-size: 0.7em;
   }
 
   .subscribe-btn {
@@ -133,7 +133,7 @@
 
 @media (max-width: 410px) {
   #newsletter-section {
-    height: 30vh;
+    height: 25vh;
   }
 
   .newsletter-section-container {
@@ -147,7 +147,7 @@
 
   .newsletter-tag {
     width: 180px;
-    font-size: 0.5em;
+    font-size: 0.6em;
   }
 
   .subscribe-btn {
