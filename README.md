@@ -9,6 +9,7 @@ random recipe, list and filter recipes by categories, cuisine or ingredient.
 * Utilized React’s hooks for state management and making API calls.
 
 ## Website Link
+https://tastebite.netlify.app/
 
 ## Acknowledgements
 * [MealDB API](https://www.themealdb.com/api.php)
