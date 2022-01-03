@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import './recipe-card.css';
 
@@ -7,9 +8,10 @@ const RecipeCard = ({
   handleOnLoadRecipeCardImage,
 }) => {
   // Get random recipe rating from 1 - 5
-  const min = 1;
-  const max = 5;
-  const ratingNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+  const ratingNumber = useMemo(
+    () => Math.floor(Math.random() * (5 - 1 + 1) + 1),
+    []
+  );
   const ratingNumberArray = [...Array(ratingNumber).keys()];
   const cookingTimeArray = ['20', '10', '30', '45', '60', '120'];
 
