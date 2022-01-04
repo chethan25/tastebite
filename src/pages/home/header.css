@@ -11,8 +11,8 @@ header {
 }
 
 .logo-svg {
-  filter: invert(98%) sepia(13%) saturate(1861%) hue-rotate(292deg)
-    brightness(104%) contrast(112%);
+  filter: invert(94%) sepia(0%) saturate(7494%) hue-rotate(259deg)
+    brightness(109%) contrast(101%);
   width: 200px;
 }
 
@@ -30,7 +30,7 @@ header {
 
 .nav-list a {
   text-decoration: none;
-  color: var(--secondary-color);
+  color: #fff;
   position: relative;
 }
 
@@ -74,7 +74,7 @@ a.effect-underline:hover:after {
 .main-header-title {
   font-size: 3em;
   text-align: center;
-  color: var(--secondary-color);
+  color: #fff;
 }
 
 .main-header-tag {
